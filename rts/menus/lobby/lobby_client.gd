@@ -1,15 +1,21 @@
 extends Control
 
+
 func _ready():
-	Network.on_server_sent_lobby_state.connect(update_panel_states)
+	Network.on_server_sent_lobby_state.connect(update_lobby_state)
 
 
-func update_panel_states(panel_states):
+func update_lobby_state(panel_states, waiting_state):
 	for panel_id in panel_states:
 		if panel_states[panel_id] != null:
 			select_panel(panel_id, panel_states[panel_id])
 		else:
 			deselect_panel(panel_id)
+	
+	$waiting.clear()
+	
+	for item in waiting_state:
+		$waiting.add_item(item, null, false)
 
 func select_panel(panel_id, selector_name):
 		var team = panel_id[0]
@@ -47,3 +53,7 @@ func _on_team_B3_pressed():
 	Network.push_lobby_select_panel("B3")
 
 
+
+
+func _on_join_waiting_pressed():
+	Network.push_lobby_join_waiting()

@@ -9,21 +9,21 @@ func _ready():
 	Network.on_host_started.connect(began_hosting)
 
 func _on_host_pressed():
-	if $name_text.text != "":
-		Network.begin_hosting(port, 2)
-		$join.disabled = true
-		$host.disabled = true
-	else:
+	if $name_text.text == "":
 		$error.text = "you gotta choose a name dude"
+		return
+	Network.begin_hosting(port, 2)
+	$join.disabled = true
+	$host.disabled = true
 
 
 func _on_join_pressed():
-	if $name_text.text != "":
-		Network.begin_join_server(ip, port)
-		$join.disabled = true
-		$host.disabled = true
-	else:
+	if $name_text.text == "":
 		$error.text = "you gotta choose a name dude"
+		return
+	Network.begin_join_server(ip, port)
+	$join.disabled = true
+	$host.disabled = true
 
 func joined_game():
 	Network.push_join_data($name_text.text)

@@ -107,9 +107,30 @@ offset_bottom = 88.5
 grow_horizontal = 0
 grow_vertical = 2
 
+[node name="join_waiting" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 5.0
+offset_top = -24.0
+offset_right = 124.0
+offset_bottom = 27.0
+grow_vertical = 2
+text = "join waiting"
+
+[node name="waiting" type="ItemList" parent="."]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 290.0
+offset_right = 1141.0
+offset_bottom = 355.0
+max_columns = 6
+
 [connection signal="pressed" from="teamA_back/teamA_1" to="." method="_on_team_A1_pressed"]
 [connection signal="pressed" from="teamA_back/teamA_2" to="." method="_on_team_A2_pressed"]
 [connection signal="pressed" from="teamA_back/teamA_3" to="." method="_on_team_A3_pressed"]
 [connection signal="pressed" from="teamB_back/teamB_1" to="." method="_on_team_B1_pressed"]
 [connection signal="pressed" from="teamB_back/teamB_2" to="." method="_on_team_B2_pressed"]
 [connection signal="pressed" from="teamB_back/teamB_3" to="." method="_on_team_B3_pressed"]
+[connection signal="pressed" from="join_waiting" to="." method="_on_join_waiting_pressed"]

@@ -9,13 +9,15 @@ signal on_connected_to_server()
 signal on_connection_to_server_failed()
 signal on_disconnected_from_server()
 
-signal on_server_sent_lobby_state(panel_states)
+signal on_server_sent_lobby_state(panel_states, waiting_state)
 
 signal on_host_started()
 signal on_client_connected(id)
 signal on_client_disconnected(id)
 
+signal on_client_sent_join_data(data)
 signal on_client_select_lobby_panel(panel_id, client_name)
+signal on_client_join_waiting(client_name)
 
 #used only if is server
 var player_id_and_name = {}
@@ -51,13 +53,14 @@ func client_disconnected(id):
 		player_id_and_name.erase(id)
 	print(str(id) + " disconnected")
 
-func push_lobby_state(panel_states):
-	rpc("sent_lobby_state", panel_states)
+func push_lobby_state(panel_states, waiting_state):
+	rpc("sent_lobby_state", panel_states, waiting_state)
 
 @rpc("any_peer")
 func sent_join_data(data):
 	var id = multiplayer.get_remote_sender_id()
 	player_id_and_name[id] = data
+	on_client_sent_join_data.emit(data)
 
 @rpc("any_peer")
 func sent_lobby_select_panel(panel_id):
@@ -65,6 +68,12 @@ func sent_lobby_select_panel(panel_id):
 	var sender_id = multiplayer.get_remote_sender_id()
 	var client_name = player_id_and_name[sender_id]
 	on_client_select_lobby_panel.emit(panel_id, client_name)
+
+@rpc("any_peer")
+func sent_lobby_join_waiting():
+	var sender_id = multiplayer.get_remote_sender_id()
+	var client_name = player_id_and_name[sender_id]
+	on_client_join_waiting.emit(client_name)
 
 #client methods
 func connected_to_server():
@@ -85,9 +94,12 @@ func push_join_data(data):
 func push_lobby_select_panel(panel_id):
 	rpc_id(1, "sent_lobby_select_panel", panel_id)
 
+func push_lobby_join_waiting():
+	rpc_id(1, "sent_lobby_join_waiting")
+
 @rpc("authority")
-func sent_lobby_state(panel_states):
-	on_server_sent_lobby_state.emit(panel_states)
+func sent_lobby_state(panel_states, waiting_state):
+	on_server_sent_lobby_state.emit(panel_states, waiting_state)
 
 #global methods
 

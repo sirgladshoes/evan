@@ -1,10 +1,15 @@
 extends Control
 
 var panel_data = {"A1":null, "A2":null, "A3":null, "B1":null, "B2":null, "B3":null}
+var players_waiting = []
 
 func _ready():
 	Network.on_client_select_lobby_panel.connect(client_select_panel)
-	Network.on_client_connected.connect(client_joined_lobby)
+	Network.on_client_sent_join_data.connect(client_joined_lobby)
+	Network.on_client_join_waiting.connect(client_join_waiting)
+	
+	var host_name = Network.player_id_and_name[1]
+	add_waiting(host_name)
 
 
 func select_panel(panel_id, selector_name):
@@ -24,8 +29,23 @@ func deselect_panel(panel_id):
 	panel.disabled = false
 
 
+func add_waiting(player_name):
+	#handles desecting other panels
+	if panel_data.values().has(player_name):
+		var current_panel_id = panel_data.keys()[panel_data.values().find(player_name)]
+		deselect_panel(current_panel_id)
+	
+	if !players_waiting.has(player_name):
+		$waiting.add_item(player_name, null, false)
+		players_waiting.append(player_name)
+
+
 func client_select_panel(panel_id, client_name):
 	if panel_data[panel_id] == null:
+		if players_waiting.has(client_name):
+			$waiting.remove_item(players_waiting.find(client_name))
+			players_waiting.erase(client_name)
+		
 		#checks if other panels are occupied by client so they can be deslected
 		if panel_data.values().has(client_name):
 			#finds panel id and gets the node
@@ -35,20 +55,29 @@ func client_select_panel(panel_id, client_name):
 		#gets panel and sets it text to the name of the client
 		select_panel(panel_id, client_name)
 		
-		Network.push_lobby_state(panel_data)
+		Network.push_lobby_state(panel_data, players_waiting)
 
-func client_joined_lobby(id):
-	Network.push_lobby_state(panel_data)
+func client_join_waiting(client_name):
+	add_waiting(client_name)
+	
+	Network.push_lobby_state(panel_data, players_waiting)
+
+func client_joined_lobby(client_name):
+	add_waiting(client_name)
+	Network.push_lobby_state(panel_data, players_waiting)
 
 #functions for host selecting
 func host_select_panel(panel_id):
 	var host_name = Network.player_id_and_name[1]
+	if players_waiting.has(host_name):
+		$waiting.remove_item(players_waiting.find(host_name))
+		players_waiting.erase(host_name)
 	if panel_data.values().has(host_name):
 		var current_panel_id = panel_data.keys()[panel_data.values().find(host_name)]
 		deselect_panel(current_panel_id)
 	select_panel(panel_id, host_name)
 	
-	Network.push_lobby_state(panel_data)
+	Network.push_lobby_state(panel_data, players_waiting)
 
 func _on_team_A1_pressed():
 	host_select_panel("A1")
@@ -67,3 +96,10 @@ func _on_team_B2_pressed():
 
 func _on_team_B3_pressed():
 	host_select_panel("B3")
+
+
+func _on_join_waiting_pressed():
+	var host_name = Network.player_id_and_name[1]
+	add_waiting(host_name)
+	
+	Network.push_lobby_state(panel_data, players_waiting)
