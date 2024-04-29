@@ -59,8 +59,15 @@ func push_lobby_state(panel_states, waiting_state):
 @rpc("any_peer")
 func sent_join_data(data):
 	var id = multiplayer.get_remote_sender_id()
-	player_id_and_name[id] = data
-	on_client_sent_join_data.emit(data)
+	var modified_data = data
+	
+	var attempted_name = data
+	while player_id_and_name.values().has(attempted_name):
+		attempted_name += "2"
+	
+	player_id_and_name[id] = attempted_name
+	modified_data = player_id_and_name[id]
+	on_client_sent_join_data.emit(modified_data)
 
 @rpc("any_peer")
 func sent_lobby_select_panel(panel_id):

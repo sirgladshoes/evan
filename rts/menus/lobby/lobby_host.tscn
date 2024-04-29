@@ -120,6 +120,7 @@ offset_right = 480.0
 offset_bottom = 313.0
 grow_horizontal = 2
 grow_vertical = 2
+disabled = true
 text = "start game"
 
 [node name="join_waiting" type="Button" parent="."]
