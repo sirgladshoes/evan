@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2rvh8gekqbqw"]
+
+[ext_resource type="Script" path="res://command_manager.gd" id="1_jwdwf"]
+[ext_resource type="Script" path="res://camera.gd" id="2_yfaa8"]
+[ext_resource type="PackedScene" uid="uid://c3sft7tqbtjbw" path="res://units/controllable_units/basic_ship.tscn" id="3_s1cn3"]
+
+[node name="testing" type="Node2D"]
+
+[node name="command_manager" type="Node2D" parent="."]
+visible = false
+z_index = 6
+position = Vector2(6.10352e-05, 0)
+script = ExtResource("1_jwdwf")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("2_yfaa8")
+speed = 700
+
+[node name="controllable_unit" parent="." instance=ExtResource("3_s1cn3")]
+position = Vector2(-231, 118)
+
+[node name="controllable_unit2" parent="." instance=ExtResource("3_s1cn3")]
+position = Vector2(221, 25)

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bt56whqsog3qh"]
+
+[ext_resource type="Script" path="res://components/auto_turret.gd" id="1_doslo"]
+
+[node name="auto_turret" type="Node2D"]
+script = ExtResource("1_doslo")
+
+[node name="shoot_timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="shoot_timer" to="." method="_on_shoot_timer_timeout"]
