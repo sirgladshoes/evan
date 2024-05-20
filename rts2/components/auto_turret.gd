@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var radius = 500
-@export var team = unit.teams.TEAM1
+@onready var team = owner.team
 @export var shoot_interval = 0.5
 @export var projectile: PackedScene
 @export var animator: AnimationPlayer

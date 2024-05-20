@@ -3,17 +3,20 @@ extends Node2D
 var select_origin = null
 @export var selection_mask = 1
 
-@onready var UI: CanvasLayer = get_node("Ui")
+#@onready var UI: CanvasLayer = get_node("Ui")
 
 var selected_units = []
 
+signal show_toolbar()
+signal hide_toolbar()
+signal update_toolbar(data)
+
 func _process(delta):
-	visible = true
 	for unit in selected_units:
 		if unit == null:
 			selected_units.erase(unit)
 	if Input.is_action_just_pressed("select"):
-		if UI.visible != true || get_viewport().get_mouse_position().y >= get_viewport_rect().size.y * 8/72: 
+		if !(selected_units and get_viewport().get_mouse_position().y <= get_viewport_rect().size.y * 8/72): 
 			begin_select()
 	if Input.is_action_pressed("select"):
 		if select_origin != null:
@@ -26,8 +29,12 @@ func _process(delta):
 		move_units()
 	if Input.is_action_just_pressed("stop_units"):
 		stop_units()
+	
+	if selected_units:
+		push_toolbar()
 
 func begin_select():
+	visible = true
 	select_origin = get_global_mouse_position()
 
 func select_tick():
@@ -62,10 +69,9 @@ func select_release():
 	visible = false
 	
 	if selected_units.size() > 0:
-		UI.visible = true
-		UI.updateRender()
+		show_toolbar.emit()
 	else:
-		UI.visible = false
+		hide_toolbar.emit()
 
 func _draw():
 	if select_origin:
@@ -94,3 +100,64 @@ func stop_units():
 	for unit in selected_units:
 		if unit is controllable_unit:
 			unit.set_movement_dir(Vector2.ZERO)
+
+
+
+func push_toolbar():
+	var data = {}
+	var currency = {"gnome_flesh" : 0, "gold" : 0, "credits" : 0}
+	data["currency"] = currency
+	data["modes"] = {"sentry":"", "mining":""}
+	var sentry_count = 0
+	var mining_count = 0
+	for unit in selected_units:
+		currency["gnome_flesh"] += unit.inventory.gnome_flesh
+		currency["gold"] += unit.inventory.gold
+		currency["credits"] += unit.inventory.credits
+		if unit is controllable_unit :
+			if unit.mode == controllable_unit.behaviour.SENTRY:
+				sentry_count += 1
+			if unit.mode == controllable_unit.behaviour.MINING:
+				mining_count += 1
+	
+	if sentry_count == selected_units.size():
+		data.modes.sentry = "all"
+	elif sentry_count == 0:
+		data.modes.sentry = "none"
+	else:
+		data.modes.sentry = "some"
+	
+	if mining_count == selected_units.size():
+		data.modes.mining = "all"
+	elif mining_count == 0:
+		data.modes.mining = "none"
+	else:
+		data.modes.mining = "some"
+	
+	data["ship_count"] = selected_units.size()
+	
+	update_toolbar.emit(data)
+
+
+func _on_ui_set_mining():
+	for unit in selected_units:
+		if unit is controllable_unit:
+			unit.set_mode(controllable_unit.behaviour.MINING)
+
+
+func _on_ui_set_sentry():
+	for unit in selected_units:
+		if unit is controllable_unit:
+			unit.set_mode(controllable_unit.behaviour.SENTRY)
+
+
+func _on_ui_disable_mining():
+	for unit in selected_units:
+		if unit is controllable_unit and unit.mode == controllable_unit.behaviour.MINING:
+			unit.set_mode(controllable_unit.behaviour.NORMAL)
+
+
+func _on_ui_disable_sentries():
+	for unit in selected_units:
+		if unit is controllable_unit and unit.mode == controllable_unit.behaviour.SENTRY:
+			unit.set_mode(controllable_unit.behaviour.NORMAL)

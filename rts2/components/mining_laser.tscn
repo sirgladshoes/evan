@@ -6,7 +6,7 @@
 script = ExtResource("1_y80kh")
 
 [node name="mining_timer" type="Timer" parent="."]
-one_shot = true
+autostart = true
 
 [node name="line" type="Line2D" parent="."]
 points = PackedVector2Array(0, 0, 0, 0)

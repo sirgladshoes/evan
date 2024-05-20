@@ -151,9 +151,8 @@ texture = ExtResource("6_oigrc")
 [sub_resource type="LabelSettings" id="LabelSettings_ub8b1"]
 font_size = 12
 
-[node name="Ui" type="CanvasLayer" node_paths=PackedStringArray("UIElementsToBeRendered")]
+[node name="UI" type="CanvasLayer"]
 script = ExtResource("1_wr10p")
-UIElementsToBeRendered = [NodePath("TopBar/TopPanel/Currencies"), NodePath("TopBar/TopPanel/Behaviors")]
 
 [node name="TopBar" type="Control" parent="."]
 layout_mode = 3
@@ -382,7 +381,7 @@ offset_right = 5.0
 offset_bottom = 70.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_w1ahk")
 
-[node name="Behaviors" type="Control" parent="TopBar/TopPanel" node_paths=PackedStringArray("sentryHighlight", "miningHighlight")]
+[node name="Behaviors" type="Control" parent="TopBar/TopPanel"]
 anchors_preset = 0
 offset_left = 370.0
 offset_right = 525.0
@@ -391,8 +390,6 @@ script = ExtResource("9_xqiog")
 yellowHighlight = ExtResource("11_2ltw6")
 greenHighlight = ExtResource("12_77fj1")
 blackHighlight = ExtResource("13_qv81g")
-sentryHighlight = NodePath("SentryButton/highlight")
-miningHighlight = NodePath("MiningButton/highlight")
 
 [node name="MiningButton" type="Control" parent="TopBar/TopPanel/Behaviors"]
 anchors_preset = 0
@@ -595,3 +592,10 @@ text = "Command Ship"
 label_settings = SubResource("LabelSettings_ub8b1")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="disable_mining" from="TopBar/TopPanel/Behaviors" to="." method="_on_behaviors_disable_mining"]
+[connection signal="disable_sentries" from="TopBar/TopPanel/Behaviors" to="." method="_on_behaviors_disable_sentries"]
+[connection signal="set_mining" from="TopBar/TopPanel/Behaviors" to="." method="_on_behaviors_set_mining"]
+[connection signal="set_sentry" from="TopBar/TopPanel/Behaviors" to="." method="_on_behaviors_set_sentry"]
+[connection signal="pressed" from="TopBar/TopPanel/Behaviors/MiningButton/MiningButton" to="TopBar/TopPanel/Behaviors" method="_on_mining_button_pressed"]
+[connection signal="pressed" from="TopBar/TopPanel/Behaviors/SentryButton/SentryButton" to="TopBar/TopPanel/Behaviors" method="_on_sentry_button_pressed"]

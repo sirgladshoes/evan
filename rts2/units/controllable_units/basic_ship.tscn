@@ -3,12 +3,12 @@
 [ext_resource type="Script" path="res://units/controllable_units/basic_ship.gd" id="1_ovw1s"]
 [ext_resource type="Texture2D" uid="uid://bgxds5xnu0nit" path="res://art/mini guy.png" id="2_fypja"]
 [ext_resource type="Shader" path="res://art/radarBlip.gdshader" id="4_prtpc"]
-[ext_resource type="PackedScene" uid="uid://cttsejy4bo050" path="res://new/straight_shooter.tscn" id="5_ophbb"]
+[ext_resource type="PackedScene" uid="uid://cttsejy4bo050" path="res://components/straight_shooter.tscn" id="5_ophbb"]
 [ext_resource type="Texture2D" uid="uid://dbnvjpnkt27mf" path="res://icon.svg" id="5_vwhhd"]
 [ext_resource type="PackedScene" uid="uid://cpdsdbinmwdxu" path="res://components/mining_laser.tscn" id="6_g5try"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0gaek"]
-size = Vector2(12, 6)
+size = Vector2(16, 16)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_axwg7"]
 resource_local_to_scene = true
@@ -52,7 +52,7 @@ texture = ExtResource("2_fypja")
 [node name="funny_gun" type="Node2D" parent="."]
 
 [node name="straight_shooter" parent="funny_gun" node_paths=PackedStringArray("animator") instance=ExtResource("5_ophbb")]
-team = 1
+position = Vector2(0, -9)
 animator = NodePath("AnimationPlayer")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="funny_gun/straight_shooter"]
@@ -60,4 +60,15 @@ libraries = {
 "": SubResource("AnimationLibrary_0w3fg")
 }
 
-[node name="mining_laser" parent="." instance=ExtResource("6_g5try")]
+[node name="straight_shooter2" parent="funny_gun" node_paths=PackedStringArray("animator") instance=ExtResource("5_ophbb")]
+position = Vector2(0, 9)
+animator = NodePath("../straight_shooter/AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="funny_gun/straight_shooter2"]
+libraries = {
+"": SubResource("AnimationLibrary_0w3fg")
+}
+
+[node name="mining_lasers" type="Node2D" parent="."]
+
+[node name="mining_laser" parent="mining_lasers" instance=ExtResource("6_g5try")]

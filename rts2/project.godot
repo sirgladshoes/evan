@@ -51,6 +51,12 @@ temp={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="ships"
+2d_physics/layer_2="projectiles"
+2d_physics/layer_3="asteroids"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

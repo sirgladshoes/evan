@@ -2,17 +2,34 @@ extends Node2D
 
 
 var target: Node2D = null
+@export var distance = 200
+@export var wait_time = 0.5
 
 signal mined_resource(type)
 
+func _ready():
+	connect("mined_resource", owner.mined_resource)
+
+func set_active(value):
+	set_physics_process(value)
+	$mining_timer.stop()
+	$line.visible = false
+
 func _physics_process(delta):
-	
-	var result = shoot_ray(100*Vector2(cos(global_rotation), -sin(global_rotation)))
+	var result = shoot_ray(global_position + distance*Vector2(cos(global_rotation), sin(global_rotation)))
 	if result:
-		global_rotation = (result.pos-global_position).angle()
+		if target != result.obj:
+			$mining_timer.wait_time = wait_time
+			$mining_timer.start()
+			target = result.obj
+		
 		$line.visible = true
 		var distance = (result.pos-global_position).length()
 		$line.set_point_position(1, Vector2(distance, 0))
+	else:
+		target = null
+		$mining_timer.stop()
+		$line.visible = false
 
 
 
