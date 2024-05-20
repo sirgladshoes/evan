@@ -1,0 +1,601 @@
+[gd_scene load_steps=34 format=3 uid="uid://l6gdmhiolm14"]
+
+[ext_resource type="Texture2D" uid="uid://clr881h1wjgkg" path="res://UI Elements/RectangleBorder.png" id="1_157ey"]
+[ext_resource type="Script" path="res://UI Elements/Scripts/CurrenciesUI.gd" id="1_mnewd"]
+[ext_resource type="Texture2D" uid="uid://cqcvy47i656og" path="res://UI Elements/squareBorder.png" id="1_rk8we"]
+[ext_resource type="Script" path="res://UI Elements/Scripts/UI.gd" id="1_wr10p"]
+[ext_resource type="Texture2D" uid="uid://c083600lcayfv" path="res://UI Elements/Gold.png" id="2_p8erj"]
+[ext_resource type="Texture2D" uid="uid://b0l2dasepmjys" path="res://UI Elements/GnomeFlesh.png" id="3_4aj5x"]
+[ext_resource type="Texture2D" uid="uid://dcfwtctqilpvo" path="res://UI Elements/credit.png" id="4_4su4w"]
+[ext_resource type="Texture2D" uid="uid://1oi4xjrcoils" path="res://UI Elements/smallHorizontalBar.png" id="4_l643b"]
+[ext_resource type="Texture2D" uid="uid://b3aptskbps8ad" path="res://UI Elements/bar.png" id="6_oigrc"]
+[ext_resource type="Texture2D" uid="uid://b23o2tejo3u6c" path="res://UI Elements/ClickedSquareBorder.png" id="7_yuvn0"]
+[ext_resource type="Texture2D" uid="uid://dbnvjpnkt27mf" path="res://icon.svg" id="8_em0tl"]
+[ext_resource type="Texture2D" uid="uid://vnkmbejqmwju" path="res://UI Elements/pickaxe.png" id="8_qesqi"]
+[ext_resource type="Texture2D" uid="uid://koyxkx0glk87" path="res://UI Elements/sentry.png" id="9_eeouq"]
+[ext_resource type="Script" path="res://UI Elements/Scripts/BehaviorsUI.gd" id="9_xqiog"]
+[ext_resource type="Texture2D" uid="uid://dw0o5wqqh0ep6" path="res://UI Elements/largeRectangleBorder.png" id="11_0dnve"]
+[ext_resource type="Texture2D" uid="uid://cidsui4e7w1ws" path="res://UI Elements/yellowHighlight.png" id="11_2ltw6"]
+[ext_resource type="Texture2D" uid="uid://bxmc30lj8g080" path="res://UI Elements/greenHighlight.png" id="12_77fj1"]
+[ext_resource type="Texture2D" uid="uid://d0git8cglstxm" path="res://UI Elements/blackHighlight.png" id="13_qv81g"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_md8jh"]
+texture = ExtResource("1_rk8we")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_thn4g"]
+texture = ExtResource("2_p8erj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qxfqw"]
+texture = ExtResource("1_157ey")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cfos7"]
+texture = ExtResource("4_l643b")
+
+[sub_resource type="FontFile" id="FontFile_gmrue"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/3/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/4/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/10/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/30/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/25/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/35/0 = Vector2(0, 0)
+cache/0/3/0/ascent = 0.0
+cache/0/3/0/descent = 0.0
+cache/0/3/0/underline_position = 0.0
+cache/0/3/0/underline_thickness = 0.0
+cache/0/3/0/scale = 1.0
+cache/0/3/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/3/0/kerning_overrides/3/0 = Vector2(0, 0)
+cache/0/3/0/kerning_overrides/4/0 = Vector2(0, 0)
+cache/0/3/0/kerning_overrides/10/0 = Vector2(0, 0)
+cache/0/3/0/kerning_overrides/30/0 = Vector2(0, 0)
+cache/0/3/0/kerning_overrides/25/0 = Vector2(0, 0)
+cache/0/3/0/kerning_overrides/35/0 = Vector2(0, 0)
+cache/0/4/0/ascent = 0.0
+cache/0/4/0/descent = 0.0
+cache/0/4/0/underline_position = 0.0
+cache/0/4/0/underline_thickness = 0.0
+cache/0/4/0/scale = 1.0
+cache/0/4/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/4/0/kerning_overrides/3/0 = Vector2(0, 0)
+cache/0/4/0/kerning_overrides/4/0 = Vector2(0, 0)
+cache/0/4/0/kerning_overrides/10/0 = Vector2(0, 0)
+cache/0/4/0/kerning_overrides/30/0 = Vector2(0, 0)
+cache/0/4/0/kerning_overrides/25/0 = Vector2(0, 0)
+cache/0/4/0/kerning_overrides/35/0 = Vector2(0, 0)
+cache/0/10/0/ascent = 0.0
+cache/0/10/0/descent = 0.0
+cache/0/10/0/underline_position = 0.0
+cache/0/10/0/underline_thickness = 0.0
+cache/0/10/0/scale = 1.0
+cache/0/10/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/10/0/kerning_overrides/3/0 = Vector2(0, 0)
+cache/0/10/0/kerning_overrides/4/0 = Vector2(0, 0)
+cache/0/10/0/kerning_overrides/10/0 = Vector2(0, 0)
+cache/0/10/0/kerning_overrides/30/0 = Vector2(0, 0)
+cache/0/10/0/kerning_overrides/25/0 = Vector2(0, 0)
+cache/0/10/0/kerning_overrides/35/0 = Vector2(0, 0)
+cache/0/30/0/ascent = 0.0
+cache/0/30/0/descent = 0.0
+cache/0/30/0/underline_position = 0.0
+cache/0/30/0/underline_thickness = 0.0
+cache/0/30/0/scale = 1.0
+cache/0/30/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/30/0/kerning_overrides/3/0 = Vector2(0, 0)
+cache/0/30/0/kerning_overrides/4/0 = Vector2(0, 0)
+cache/0/30/0/kerning_overrides/10/0 = Vector2(0, 0)
+cache/0/30/0/kerning_overrides/30/0 = Vector2(0, 0)
+cache/0/30/0/kerning_overrides/25/0 = Vector2(0, 0)
+cache/0/30/0/kerning_overrides/35/0 = Vector2(0, 0)
+cache/0/25/0/ascent = 0.0
+cache/0/25/0/descent = 0.0
+cache/0/25/0/underline_position = 0.0
+cache/0/25/0/underline_thickness = 0.0
+cache/0/25/0/scale = 1.0
+cache/0/25/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/25/0/kerning_overrides/3/0 = Vector2(0, 0)
+cache/0/25/0/kerning_overrides/4/0 = Vector2(0, 0)
+cache/0/25/0/kerning_overrides/10/0 = Vector2(0, 0)
+cache/0/25/0/kerning_overrides/30/0 = Vector2(0, 0)
+cache/0/25/0/kerning_overrides/25/0 = Vector2(0, 0)
+cache/0/25/0/kerning_overrides/35/0 = Vector2(0, 0)
+cache/0/35/0/ascent = 0.0
+cache/0/35/0/descent = 0.0
+cache/0/35/0/underline_position = 0.0
+cache/0/35/0/underline_thickness = 0.0
+cache/0/35/0/scale = 1.0
+cache/0/35/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/35/0/kerning_overrides/3/0 = Vector2(0, 0)
+cache/0/35/0/kerning_overrides/4/0 = Vector2(0, 0)
+cache/0/35/0/kerning_overrides/10/0 = Vector2(0, 0)
+cache/0/35/0/kerning_overrides/30/0 = Vector2(0, 0)
+cache/0/35/0/kerning_overrides/25/0 = Vector2(0, 0)
+cache/0/35/0/kerning_overrides/35/0 = Vector2(0, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wste0"]
+font = SubResource("FontFile_gmrue")
+font_size = 30
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_50wtb"]
+texture = ExtResource("3_4aj5x")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_10rj2"]
+texture = ExtResource("4_4su4w")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w1ahk"]
+texture = ExtResource("6_oigrc")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b1ioo"]
+texture = ExtResource("8_qesqi")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ign83"]
+texture = ExtResource("9_eeouq")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a8gjw"]
+texture = ExtResource("8_em0tl")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x5io8"]
+texture = ExtResource("11_0dnve")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f4ylr"]
+texture = ExtResource("6_oigrc")
+
+[sub_resource type="LabelSettings" id="LabelSettings_ub8b1"]
+font_size = 12
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_wr10p")
+
+[node name="TopBar" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 80.0
+grow_horizontal = 2
+
+[node name="TopPanel" type="Panel" parent="TopBar"]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 80.0
+
+[node name="Currencies" type="Control" parent="TopBar/TopPanel" node_paths=PackedStringArray("selectedGoldText", "totalGoldText", "selectedGnomeFleshText", "totalGnomeFleshText", "selectedCreditText", "totalCreditText")]
+anchors_preset = 0
+offset_right = 360.0
+offset_bottom = 80.0
+script = ExtResource("1_mnewd")
+selectedGoldText = NodePath("Gold/NumberBackground/SelectedAmount")
+totalGoldText = NodePath("Gold/NumberBackground/TotalAmount")
+selectedGnomeFleshText = NodePath("GnomeFlesh/NumberBackground/SelectedAmount")
+totalGnomeFleshText = NodePath("GnomeFlesh/NumberBackground/TotalAmount")
+selectedCreditText = NodePath("Credit/NumberBackground/SelectedAmount")
+totalCreditText = NodePath("Credit/NumberBackground/TotalAmount")
+
+[node name="Gold" type="Control" parent="TopBar/TopPanel/Currencies"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 120.0
+offset_bottom = 80.0
+
+[node name="GoldBackground" type="Panel" parent="TopBar/TopPanel/Currencies/Gold"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 75.0
+offset_bottom = 75.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_md8jh")
+
+[node name="GoldImage" type="Panel" parent="TopBar/TopPanel/Currencies/Gold/GoldBackground"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 60.0
+offset_bottom = 60.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_thn4g")
+
+[node name="NumberBackground" type="Panel" parent="TopBar/TopPanel/Currencies/Gold"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 5.0
+offset_right = 120.0
+offset_bottom = 75.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_qxfqw")
+
+[node name="Panel" type="Panel" parent="TopBar/TopPanel/Currencies/Gold/NumberBackground"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 34.0
+offset_right = 30.0
+offset_bottom = 36.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_cfos7")
+
+[node name="SelectedAmount" type="Label" parent="TopBar/TopPanel/Currencies/Gold/NumberBackground"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 15.0
+offset_right = 125.0
+offset_bottom = 60.0
+scale = Vector2(0.25, 0.25)
+text = "Amount"
+label_settings = SubResource("LabelSettings_wste0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TotalAmount" type="Label" parent="TopBar/TopPanel/Currencies/Gold/NumberBackground"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 45.0
+offset_right = 125.0
+offset_bottom = 90.0
+scale = Vector2(0.25, 0.25)
+text = "Total
+"
+label_settings = SubResource("LabelSettings_wste0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GnomeFlesh" type="Control" parent="TopBar/TopPanel/Currencies"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 120.0
+offset_right = 240.0
+offset_bottom = 80.0
+
+[node name="GnomeFleshBackground" type="Panel" parent="TopBar/TopPanel/Currencies/GnomeFlesh"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 75.0
+offset_bottom = 75.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_md8jh")
+
+[node name="GnomeFleshImage" type="Panel" parent="TopBar/TopPanel/Currencies/GnomeFlesh/GnomeFleshBackground"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 60.0
+offset_bottom = 60.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_50wtb")
+
+[node name="NumberBackground" type="Panel" parent="TopBar/TopPanel/Currencies/GnomeFlesh"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 5.0
+offset_right = 120.0
+offset_bottom = 75.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_qxfqw")
+
+[node name="Panel" type="Panel" parent="TopBar/TopPanel/Currencies/GnomeFlesh/NumberBackground"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 34.0
+offset_right = 30.0
+offset_bottom = 36.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_cfos7")
+
+[node name="SelectedAmount" type="Label" parent="TopBar/TopPanel/Currencies/GnomeFlesh/NumberBackground"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 15.0
+offset_right = 125.0
+offset_bottom = 60.0
+scale = Vector2(0.25, 0.25)
+text = "Amount"
+label_settings = SubResource("LabelSettings_wste0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TotalAmount" type="Label" parent="TopBar/TopPanel/Currencies/GnomeFlesh/NumberBackground"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 45.0
+offset_right = 125.0
+offset_bottom = 90.0
+scale = Vector2(0.25, 0.25)
+text = "Total
+"
+label_settings = SubResource("LabelSettings_wste0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Credit" type="Control" parent="TopBar/TopPanel/Currencies"]
+anchors_preset = 0
+offset_left = 240.0
+offset_right = 360.0
+offset_bottom = 80.0
+
+[node name="NumberBackground" type="Panel" parent="TopBar/TopPanel/Currencies/Credit"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 5.0
+offset_right = 120.0
+offset_bottom = 75.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_qxfqw")
+
+[node name="Panel" type="Panel" parent="TopBar/TopPanel/Currencies/Credit/NumberBackground"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 34.0
+offset_right = 30.0
+offset_bottom = 36.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_cfos7")
+
+[node name="SelectedAmount" type="Label" parent="TopBar/TopPanel/Currencies/Credit/NumberBackground"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 15.0
+offset_right = 125.0
+offset_bottom = 60.0
+scale = Vector2(0.25, 0.25)
+text = "Amount"
+label_settings = SubResource("LabelSettings_wste0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TotalAmount" type="Label" parent="TopBar/TopPanel/Currencies/Credit/NumberBackground"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 45.0
+offset_right = 125.0
+offset_bottom = 90.0
+scale = Vector2(0.25, 0.25)
+text = "Total
+"
+label_settings = SubResource("LabelSettings_wste0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditBackground" type="Panel" parent="TopBar/TopPanel/Currencies/Credit"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 75.0
+offset_bottom = 75.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_md8jh")
+
+[node name="CreditImage" type="Panel" parent="TopBar/TopPanel/Currencies/Credit/CreditBackground"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 60.0
+offset_bottom = 60.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_10rj2")
+
+[node name="Bar1" type="Control" parent="TopBar/TopPanel"]
+anchors_preset = 0
+offset_left = 364.0
+offset_top = 5.0
+offset_right = 369.0
+offset_bottom = 75.0
+
+[node name="Panel" type="Panel" parent="TopBar/TopPanel/Bar1"]
+layout_mode = 0
+offset_right = 5.0
+offset_bottom = 70.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_w1ahk")
+
+[node name="Behaviors" type="Control" parent="TopBar/TopPanel"]
+anchors_preset = 0
+offset_left = 370.0
+offset_right = 525.0
+offset_bottom = 80.0
+script = ExtResource("9_xqiog")
+yellowHighlight = ExtResource("11_2ltw6")
+greenHighlight = ExtResource("12_77fj1")
+blackHighlight = ExtResource("13_qv81g")
+
+[node name="MiningButton" type="Control" parent="TopBar/TopPanel/Behaviors"]
+anchors_preset = 0
+offset_right = 80.0
+offset_bottom = 80.0
+
+[node name="Panel" type="Panel" parent="TopBar/TopPanel/Behaviors/MiningButton"]
+z_index = 1
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 70.0
+offset_bottom = 70.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_b1ioo")
+
+[node name="highlight" type="TextureRect" parent="TopBar/TopPanel/Behaviors/MiningButton"]
+layout_mode = 0
+offset_right = 80.0
+offset_bottom = 80.0
+
+[node name="MiningButton" type="TextureButton" parent="TopBar/TopPanel/Behaviors/MiningButton"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 75.0
+offset_bottom = 75.0
+texture_normal = ExtResource("1_rk8we")
+texture_pressed = ExtResource("7_yuvn0")
+stretch_mode = 0
+
+[node name="SentryButton" type="Control" parent="TopBar/TopPanel/Behaviors"]
+anchors_preset = 0
+offset_left = 75.0
+offset_right = 155.0
+offset_bottom = 80.0
+
+[node name="Panel" type="Panel" parent="TopBar/TopPanel/Behaviors/SentryButton"]
+z_index = 1
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 70.0
+offset_bottom = 70.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ign83")
+
+[node name="highlight" type="TextureRect" parent="TopBar/TopPanel/Behaviors/SentryButton"]
+layout_mode = 0
+offset_right = 80.0
+offset_bottom = 80.0
+
+[node name="SentryButton" type="TextureButton" parent="TopBar/TopPanel/Behaviors/SentryButton"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 75.0
+offset_bottom = 75.0
+texture_normal = ExtResource("1_rk8we")
+texture_pressed = ExtResource("7_yuvn0")
+stretch_mode = 0
+
+[node name="Actions" type="Control" parent="TopBar/TopPanel"]
+anchors_preset = 0
+offset_left = 530.0
+offset_right = 770.0
+offset_bottom = 80.0
+
+[node name="MiningButton" type="Control" parent="TopBar/TopPanel/Actions"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 80.0
+offset_bottom = 80.0
+
+[node name="Panel" type="Panel" parent="TopBar/TopPanel/Actions/MiningButton"]
+z_index = 1
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 70.0
+offset_bottom = 70.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_a8gjw")
+
+[node name="TextureButton" type="TextureButton" parent="TopBar/TopPanel/Actions/MiningButton"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 75.0
+offset_bottom = 75.0
+texture_normal = ExtResource("1_rk8we")
+texture_pressed = ExtResource("7_yuvn0")
+stretch_mode = 0
+
+[node name="MiningButton2" type="Control" parent="TopBar/TopPanel/Actions"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 80.0
+offset_right = 160.0
+offset_bottom = 80.0
+
+[node name="Panel" type="Panel" parent="TopBar/TopPanel/Actions/MiningButton2"]
+z_index = 1
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 70.0
+offset_bottom = 70.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_a8gjw")
+
+[node name="TextureButton" type="TextureButton" parent="TopBar/TopPanel/Actions/MiningButton2"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 75.0
+offset_bottom = 75.0
+texture_normal = ExtResource("1_rk8we")
+texture_pressed = ExtResource("7_yuvn0")
+stretch_mode = 0
+
+[node name="MiningButton3" type="Control" parent="TopBar/TopPanel/Actions"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 160.0
+offset_right = 240.0
+offset_bottom = 80.0
+
+[node name="Panel" type="Panel" parent="TopBar/TopPanel/Actions/MiningButton3"]
+z_index = 1
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 70.0
+offset_bottom = 70.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_a8gjw")
+
+[node name="TextureButton" type="TextureButton" parent="TopBar/TopPanel/Actions/MiningButton3"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 75.0
+offset_bottom = 75.0
+texture_normal = ExtResource("1_rk8we")
+texture_pressed = ExtResource("7_yuvn0")
+stretch_mode = 0
+
+[node name="Bar2" type="Control" parent="TopBar/TopPanel"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 525.0
+offset_top = 5.0
+offset_right = 530.0
+offset_bottom = 75.0
+
+[node name="Panel" type="Panel" parent="TopBar/TopPanel/Bar2"]
+layout_mode = 0
+offset_right = 5.0
+offset_bottom = 70.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_w1ahk")
+
+[node name="SelectionInfo" type="Control" parent="TopBar/TopPanel"]
+anchors_preset = 0
+offset_left = 1130.0
+offset_right = 1280.0
+offset_bottom = 80.0
+
+[node name="Panel" type="Panel" parent="TopBar/TopPanel/SelectionInfo"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 145.0
+offset_bottom = 75.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_x5io8")
+
+[node name="Panel2" type="Panel" parent="TopBar/TopPanel/SelectionInfo"]
+layout_mode = 0
+offset_left = 135.0
+offset_top = 35.0
+offset_right = 145.0
+offset_bottom = 155.0
+rotation = 1.5708
+theme_override_styles/panel = SubResource("StyleBoxTexture_f4ylr")
+
+[node name="SelectedShips" type="Label" parent="TopBar/TopPanel/SelectionInfo"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 12.0
+offset_right = 125.0
+offset_bottom = 35.0
+text = "20 Ships Selected"
+label_settings = SubResource("LabelSettings_ub8b1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FirstSelectedOrSomething" type="Label" parent="TopBar/TopPanel/SelectionInfo"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 45.0
+offset_right = 125.0
+offset_bottom = 68.0
+rotation = -0.00132409
+text = "Command Ship"
+label_settings = SubResource("LabelSettings_ub8b1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="disable_mining" from="TopBar/TopPanel/Behaviors" to="." method="_on_behaviors_disable_mining"]
+[connection signal="disable_sentries" from="TopBar/TopPanel/Behaviors" to="." method="_on_behaviors_disable_sentries"]
+[connection signal="set_mining" from="TopBar/TopPanel/Behaviors" to="." method="_on_behaviors_set_mining"]
+[connection signal="set_sentry" from="TopBar/TopPanel/Behaviors" to="." method="_on_behaviors_set_sentry"]
+[connection signal="pressed" from="TopBar/TopPanel/Behaviors/MiningButton/MiningButton" to="TopBar/TopPanel/Behaviors" method="_on_mining_button_pressed"]
+[connection signal="pressed" from="TopBar/TopPanel/Behaviors/SentryButton/SentryButton" to="TopBar/TopPanel/Behaviors" method="_on_sentry_button_pressed"]
